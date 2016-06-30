@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".DeviceActivity"
+    tools:showIn="@layout/activity_device">
+
+    <LinearLayout
+        android:id="@+id/ll_battery_level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电池电量"/>
+
+        <com.daimajia.numberprogressbar.NumberProgressBar
+            android:id="@+id/battery_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_battery_level">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <RadioGroup
+                android:id="@+id/cardType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/cardType4442"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="4442卡"/>
+
+                <RadioButton
+                    android:id="@+id/cardTypeCpu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="CPU卡"/>
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/dataView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cardType"
+                android:background="@drawable/my_shape"
+                android:lines="17"
+                android:textSize="12sp"
+                android:typeface="monospace"/>
+
+            <LinearLayout
+                android:id="@+id/ll_dataView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataView"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bt_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_clear"/>
+
+                <Button
+                    android:id="@+id/bt_apdu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="@string/apdu"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/card4442"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_dataView"
+                android:background="@drawable/background"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/bt_read"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:text="@string/reade"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_checkPW"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_password"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:digits="0123456789ABCDEFabcdef"
+                        android:hint="6位密码"
+                        android:maxLength="8"/>
+
+                    <Button
+                        android:id="@+id/bt_checkPW"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/checkPW"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_writeData"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/ll_checkPW"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789ABCDEFabcdef"
+                        android:hint="@string/address"
+                        android:maxLength="2"/>
+
+                    <EditText
+                        android:id="@+id/et_data"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:digits="0123456789ABCDEFabcdef"
+                        android:hint="@string/data"/>
+
+                    <Button
+                        android:id="@+id/bt_write"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/write"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_protectedBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_writeData">
+
+                    <EditText
+                        android:id="@+id/protectedBlock"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:digits="0123456789ABCDEFabcdef"/>
+
+                    <Button
+                        android:id="@+id/readProtectedBlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readProtectedBlock"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_writeProtectedBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_protectedBlock">
+
+                    <EditText
+                        android:id="@+id/protectedBlockAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789ABCDEFabcdef"
+                        android:hint="@string/address"
+                        android:maxLength="2"
+                        android:textColor="@android:color/holo_red_light"/>
+
+                    <EditText
+                        android:id="@+id/et_writeProtectedBlock"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:digits="0123456789ABCDEFabcdef"
+                        android:hint="@string/data"
+                        android:textColor="@android:color/holo_red_light"/>
+
+                    <Button
+                        android:id="@+id/writeProtectedBlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/writeProtectedBlock"
+                        android:textColor="@android:color/holo_red_light"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_writeProtectedBlock">
+
+                    <EditText
+                        android:id="@+id/secureBlockAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789ABCDEFabcdef"
+                        android:hint="@string/address"
+                        android:maxLength="2"/>
+
+                    <EditText
+                        android:id="@+id/secureBlock"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:digits="0123456789ABCDEFabcdef"
+                        android:hint="@string/data"
+                        android:maxLength="11"/>
+
+                    <Button
+                        android:id="@+id/readSecureBlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readSecureBlock"/>
+
+                    <Button
+                        android:id="@+id/writeSecureBlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/writeSecureBlock"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cardCpu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card4442"
+                android:background="@drawable/background"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/bt_reset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="复位"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

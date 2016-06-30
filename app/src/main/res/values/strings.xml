@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">BleCardDemo</string>
+    <string name="title_activity_device">DeviceActivity</string>
+    <string name="action_settings">设置</string>
+    <string name="action_clear">清空</string>
+    <string name="send">发送</string>
+    <string name="data_type">十六进制数据</string>
+    <string name="ok">确定</string>
+    <string name="write">写入数据</string>
+    <string name="reade">读卡</string>
+    <string name="clear">清空</string>
+    <string name="checkPW">校验密码</string>
+    <string name="ota">OTA升级</string>
+    <string name="timeout">传输超时</string>
+    <string name="connected">已连接</string>
+    <string name="disconnected">未连接</string>
+    <string name="apdu">apdu</string>
+    <string name="action_about">关于</string>
+    <string name="writeSecureBlock">写安全区</string>
+    <string name="readSecureBlock">读安全区</string>
+    <string name="readProtectedBlock">读保护区</string>
+    <string name="writeProtectedBlock">写保护区</string>
+    <string name="address">地址</string>
+    <string name="data">数据</string>
+</resources>

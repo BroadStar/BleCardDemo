@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.broadstar.bletool.DeviceActivity">
+
+    <item
+        android:id="@+id/connection"
+        android:title="@string/disconnected"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_timeout"
+        android:title="@string/timeout"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_detail"
+        android:checkable="true"
+        android:checked="true"
+        android:title="显示命令流"
+        app:showAsAction="never"/>
+
+</menu>
